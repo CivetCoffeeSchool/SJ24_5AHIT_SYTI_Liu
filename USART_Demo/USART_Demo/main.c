@@ -13,6 +13,7 @@ uint8_t receivedChar;
 
 //Funktionsprototyp definieren
 void sendCharacter(uint8_t data);
+void sendString(uint8_t* str);
 
 int main(void)
 {
@@ -34,22 +35,18 @@ int main(void)
 	// Interrupts global aktivieren
 	sei();
 	
-	
     /* Replace with your application code */
     while (1) 
     {
-		
 		_delay_ms(500);
+		sendString("Hallo");
     }
 }
 // ISR fur das Emfangen eines Zeichens via UART
 ISR(USART_RX_vect){//Vector
 	receivedChar = UDR0;
 	if(receivedChar == 65)
-		sendCharacter()
-	receivedChar++;
-	sendCharacter(receivedChar);
-	//UDR0=receivedChar;//:<
+	UDR0=receivedChar;//:<
 }
 
 // Funktion zum Senden eines Zeichens
@@ -58,6 +55,9 @@ void sendCharacter(uint8_t data){
 	UDR0 = data;
 }
 
-void sendString(){
-	sendCharacter()
+// Funktion zum Sender einer Zeichenkette
+void sendString(uint8_t* str) {
+	while (*str) { // Iterate over the string until null terminator is reached
+		sendCharacter(*str++); // Send each character and increment the pointer
+	}
 }
