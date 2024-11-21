@@ -4,17 +4,17 @@
  * Created: 2024/10/24 14:00:39
  * Author : A
  */ 
-
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <avr/eeprom.h>
 #include <util/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <avr/interrupt.h>
 #include "lcd.h"
 #include "lcd_definitions.h"
 
-#define F_CPU 16000000UL
-uint16_t EEMEM eeprom_stored_number;
+
 volatile uint16_t random_number = 0;
 
 void init_taster() {
@@ -45,7 +45,7 @@ ISR(INT0_vect){//generate new number
 }
 
 ISR(INT1_vect){//save current number
-	eeprom_update_word(&eeprom_stored_number, random_number);  // Zahl im EEPROM speichern
+	eeprom_update_byte((uint16_t *) 46, random_number);  // Zahl im EEPROM speichern
 	
 	// Bestätigung auf dem LCD anzeigen
 	lcd_clrscr();
@@ -54,17 +54,20 @@ ISR(INT1_vect){//save current number
 	display_number(random_number);  // Zahl wieder anzeigen
 }
 
+
 int main(void)
 {
     init_taster();
 	lcd_init(LCD_DISP_ON);
 	lcd_clrscr();  // LCD löschen
 	
-	uint16_t stored_number = eeprom_read_word(&eeprom_stored_number);
+	uint16_t stored_number = eeprom_read_byte((uint16_t *)46);
 	display_number(stored_number);  // Letzte gespeicherte Zahl anzeigen
+	
 	
     while (1) 
     {
+		
     }
 }
 
