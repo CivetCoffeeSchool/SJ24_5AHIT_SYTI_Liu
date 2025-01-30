@@ -20,7 +20,8 @@ int main(void)
 	sei();
 	unsigned int c;
 	char buffer[7];
-
+	
+	uart_puts(buffer);
     /* Replace with your application code */
 	while(1)
     {
