@@ -1,0 +1,132 @@
+﻿@page "/realtime-chart"
+@using System.Threading
+@using MudBlazor
+@implements IDisposable
+
+<MudChart ChartType="ChartType.Line"
+          ChartSeries="@chartSeries"
+          XAxisLabels="@xAxisLabels"
+          Width="100%"
+          Height="400px"
+          ChartOptions="@chartOptions"/>
+
+@code {
+    private Timer? updateTimer;
+    private readonly List<DataPoint> receivedData = new();
+    private ChartOptions chartOptions = new();
+    private string[] xAxisLabels = Array.Empty<string>();
+    private List<ChartSeries> chartSeries = new();
+
+    // Simulation parameters
+    private const int MaxDataPoints = 20;
+    private readonly Random random = new();
+    private int counter;
+
+    protected override void OnInitialized()
+    {
+        // Replace this with actual USART data reception
+        SetupSimulatedData();
+
+        // For real hardware integration, use:
+        // SetupSerialPortListener();
+
+        base.OnInitialized();
+    }
+
+    private void SetupSimulatedData()
+    {
+        updateTimer = new Timer(_ =>
+        {
+            // Simulate incoming data
+            var newData = new DataPoint
+            {
+                Timestamp = DateTime.Now,
+                Temperature = 20 + random.NextDouble() * 10,
+                Humidity = 40 + random.NextDouble() * 20,
+                SerialNumber = "SN-" + random.Next(1000, 9999)
+            };
+
+            UpdateChartData(newData);
+            InvokeAsync(StateHasChanged);
+        }, null, 0, 1000); // Update every 1 second
+    }
+
+    private void UpdateChartData(DataPoint newData)
+    {
+        receivedData.Add(newData);
+
+        // Keep only last N points
+        if (receivedData.Count > MaxDataPoints)
+        {
+            receivedData.RemoveAt(0);
+        }
+
+        UpdateChartSeries();
+    }
+
+    private void UpdateChartSeries()
+    {
+        // Convert timestamps to display format
+        xAxisLabels = receivedData
+            .Select(d => d.Timestamp.ToString("HH:mm:ss"))
+            .ToArray();
+
+        // Create chart series
+        chartSeries = new List<ChartSeries>
+        {
+            new()
+            {
+                Name = "Temperature (°C)",
+                Data = receivedData.Select(d => Math.Round(d.Temperature, 1)).ToArray()
+            },
+            new()
+            {
+                Name = "Humidity (%)",
+                Data = receivedData.Select(d => Math.Round(d.Humidity, 1)).ToArray()
+            }
+        };
+    }
+
+    // For real hardware implementation
+    private void SetupSerialPortListener()
+    {
+        // Example using SerialPort (requires System.IO.Ports)
+        /*
+        var serialPort = new SerialPort("COM3", 9600);
+        serialPort.DataReceived += (sender, args) =>
+        {
+            var data = serialPort.ReadLine();
+            var parsed = ParseSerialData(data);
+            UpdateChartData(parsed);
+            InvokeAsync(StateHasChanged);
+        };
+        serialPort.Open();
+        */
+    }
+
+    private DataPoint ParseSerialData(string rawData)
+    {
+        // Example format: "23.5;65;SN-1234"
+        var parts = rawData.Split(';');
+        return new DataPoint
+        {
+            Temperature = double.Parse(parts[0]),
+            Humidity = double.Parse(parts[1]),
+            SerialNumber = parts[2],
+            Timestamp = DateTime.Now
+        };
+    }
+
+    public void Dispose()
+    {
+        updateTimer?.Dispose();
+    }
+
+    private class DataPoint
+    {
+        public DateTime Timestamp { get; set; }
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public string SerialNumber { get; set; } = string.Empty;
+    }
+}

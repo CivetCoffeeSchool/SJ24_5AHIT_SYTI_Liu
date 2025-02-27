@@ -132,6 +132,11 @@ void check_input(void){
 			TCNT1 = 0;  // Reset timer
 			update_display(0);
 			break;
+		case 'r':  // Reset command
+			retryCount = 0;
+			ackReceived = 0;
+			connectionLost = 0;
+			PORTB &= ~(1 << STATUS_LED_PIN);
 		case 'd':
 			sendFlag = 1;
 			retryCount = 0;  // Reset retry counter
@@ -158,12 +163,7 @@ void check_input(void){
 			uart_puts(fanStatus ? "FAN1" : "FAN0");
 			uart_putc(0x03);
 			break;
-		case 'r':  // Reset command
-			retryCount = 0;
-			ackReceived = 0;
-			connectionLost = 0;
-			PORTB &= ~(1 << STATUS_LED_PIN);
-			break;
+		
 	}
 }
 

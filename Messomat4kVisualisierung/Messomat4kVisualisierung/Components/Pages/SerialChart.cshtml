@@ -1,0 +1,153 @@
+﻿@page "/serial-chart"
+@using System.Threading
+@using MudBlazor
+@using System.Text.RegularExpressions
+@implements IDisposable
+
+<MudChart ChartType="ChartType.Line"
+          ChartSeries="@chartSeries"
+          XAxisLabels="@xAxisLabels"
+          Width="100%"
+          Height="400px"
+          ChartOptions="@chartOptions"/>
+
+<MudText Typo="Typo.body2" Class="mt-4">Latest Serial: @latestSerial</MudText>
+
+@code {
+    private Timer? updateTimer;
+    private readonly List<DataPoint> receivedData = new();
+    private ChartOptions chartOptions = new();
+    private string[] xAxisLabels = Array.Empty<string>();
+    private List<ChartSeries> chartSeries = new();
+    private string latestSerial = "N/A";
+
+    // Configuration
+    private const int MaxDataPoints = 30;
+    private int counter;
+    private DataPoint? lastReceivedData;
+
+    protected override void OnInitialized()
+    {
+        // Replace with actual serial port implementation
+        SetupSimulatedData();
+        base.OnInitialized();
+    }
+
+    private void SetupSimulatedData()
+    {
+        updateTimer = new Timer(_ =>
+        {
+            // Simulate incoming data
+            var rawMessage = "\u0002DATE23|HU25|SN5\u0003";  // STX + message + ETX
+            var parsedData = ParseSerialData(rawMessage);
+
+            // Randomize values slightly for simulation
+            parsedData = parsedData with
+            {
+                Temperature = parsedData.Temperature + Random.Shared.Next(-1, 2),
+                Humidity = parsedData.Humidity + Random.Shared.Next(-2, 3)
+            };
+
+            UpdateChartData(parsedData);
+            InvokeAsync(StateHasChanged);
+        }, null, 0, 2000); // Update every 2 seconds
+    }
+
+    private void UpdateChartData(DataPoint newData)
+    {
+        // Check for duplicate message
+        if (lastReceivedData.HasValue &&
+            lastReceivedData.Value.SerialNumber == newData.SerialNumber &&
+            Math.Abs(lastReceivedData.Value.Temperature - newData.Temperature) < 0.01 &&
+            Math.Abs(lastReceivedData.Value.Humidity - newData.Humidity) < 0.01)
+        {
+            return;
+        }
+
+        receivedData.Add(newData);
+        lastReceivedData = newData;
+        latestSerial = newData.SerialNumber;
+
+        // Maintain rolling buffer
+        if (receivedData.Count > MaxDataPoints)
+        {
+            receivedData.RemoveAt(0);
+        }
+
+        UpdateChartSeries();
+    }
+
+    private void UpdateChartSeries()
+    {
+        xAxisLabels = receivedData
+            .Select(d => d.Timestamp.ToString("HH:mm:ss"))
+            .ToArray();
+
+        chartSeries = new List<ChartSeries>
+        {
+            new()
+            {
+                Name = "Temperature (°C)",
+                Data = receivedData.Select(d => d.Temperature).ToArray()
+            },
+            new()
+            {
+                Name = "Humidity (%)",
+                Data = receivedData.Select(d => d.Humidity).ToArray()
+            }
+        };
+    }
+
+    private DataPoint ParseSerialData(string rawData)
+    {
+        // Remove control characters
+        var cleanedData = rawData.Trim('\u0002', '\u0003');
+        var segments = cleanedData.Split('|');
+
+        double temp = 0;
+        double humidity = 0;
+        string serial = "UNKNOWN";
+
+        foreach (var segment in segments)
+        {
+            var tempMatch = Regex.Match(segment, @"TE(\d+(?:\.\d+)?)");
+            if (tempMatch.Success)
+            {
+                temp = double.Parse(tempMatch.Groups[1].Value);
+            }
+
+            var humMatch = Regex.Match(segment, @"HU(\d+(?:\.\d+)?)");
+            if (humMatch.Success)
+            {
+                humidity = double.Parse(humMatch.Groups[1].Value);
+            }
+
+            var snMatch = Regex.Match(segment, @"SN(\w+)");
+            if (snMatch.Success)
+            {
+                serial = snMatch.Groups[1].Value;
+            }
+        }
+
+        return new DataPoint
+        {
+            Temperature = temp,
+            Humidity = humidity,
+            SerialNumber = serial,
+            Timestamp = DateTime.Now
+        };
+    }
+
+    public void Dispose()
+    {
+        updateTimer?.Dispose();
+    }
+
+    private struct DataPoint
+    {
+        public DateTime Timestamp { get; set; }
+        public double Temperature { get; set; }
+        public double Humidity { get; set; }
+        public string SerialNumber { get; set; }
+    }
+}
