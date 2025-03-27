@@ -1,0 +1,231 @@
+﻿@page "/"
+@using System.IO.Ports
+@using MudBlazor
+@implements IDisposable
+
+<MudContainer>
+    <MudPaper Elevation="5" Class="pa-4">
+        <!-- Connection Status -->
+        <MudAlert Severity="@connectionSeverity" Class="mb-4" Icon="@Icons.Custom.Uncategorized.Fish">
+            @connectionStatus
+        </MudAlert>
+
+        <!-- Graphs -->
+        <MudText Typo="Typo.h4" Class="mb-4">Sensor Data Visualization</MudText>
+
+        <MudChart @ref="tempChart"
+                  ChartType="ChartType.Line"
+                  Title="Temperature (°C)"
+                  XAxisLabels="@timeLabels.ToArray()"
+                  ChartSeries="@tempSeries"
+                  Width="800"
+                  Height="300"
+                  Class="mb-6"/>
+        
+        <MudChart @ref="humidityChart"
+                  ChartType="ChartType.Line"
+                  Title="Humidity (%)"
+                  XAxisLabels="@timeLabels.ToArray()"
+                  ChartSeries="@humiditySeries"
+                  Width="800"
+                  Height="300"
+                  Class="mb-6"/>
+
+        <!-- Fan Status -->
+        <MudAlert Severity="@(fanStatus ? Severity.Success : Severity.Warning)" Class="mb-4">
+            FAN STATUS: @(fanStatus ? "RUNNING (1)" : "STOPPED (0)")
+        </MudAlert>
+
+        <!-- Control Buttons -->
+        <MudGrid Class="mb-4">
+            <MudGridItem xs="12" sm="6" md="3">
+                <MudButton Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           OnClick="@(() => SendCommand('d'))">
+                    Start Measurements (d)
+                </MudButton>
+            </MudGridItem>
+
+            <!-- Add other buttons similarly -->
+            <MudGridItem xs="12" sm="6" md="3">
+                <MudButton Variant="Variant.Filled"
+                           Color="@(fanStatus ? Color.Error : Color.Success)"
+                           FullWidth="true"
+                           OnClick="@(() => SendCommand(fanStatus ? 'a' : 'e'))">
+                    @(fanStatus ? "Stop Fan (a)" : "Start Fan (e)")
+                </MudButton>
+            </MudGridItem>
+        </MudGrid>
+
+        <!-- Interval Selection -->
+        <MudRadioGroup @bind-Value="@selectedInterval" Label="Transmission Interval">
+            <MudRadio Value="@(1)">Normal (1s)</MudRadio>
+            <MudRadio Value="@(4)">Eco (4s)</MudRadio>
+        </MudRadioGroup>
+
+        <MudText Class="mt-2">Selected Interval: @selectedInterval seconds</MudText>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private SerialPort serialPort;
+    private bool fanStatus;
+    private int selectedInterval = 1;
+    private string connectionStatus = "Disconnected";
+    private Severity connectionSeverity = Severity.Error;
+    
+    private MudChart tempChart;
+    private MudChart humidityChart;
+    
+    private List<string> timeLabels = new();
+    private List<ChartSeries> tempSeries = new() { new() { Name = "Temperature", Data = new double[20] } };
+    private List<ChartSeries> humiditySeries = new() { new() { Name = "Humidity", Data = new double[20] } };
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await InitializeSerialPort();
+    }
+
+    private async Task InitializeSerialPort()
+    {
+        try
+        {
+            serialPort = new SerialPort("COM3")
+            {
+                BaudRate = 9600,
+                Parity = Parity.None,
+                DataBits = 8,
+                StopBits = StopBits.One,
+                Handshake = Handshake.None
+            };
+
+            serialPort.DataReceived += SerialPortDataReceived;
+            serialPort.Open();
+            
+            connectionStatus = "Connected to COM3";
+            connectionSeverity = Severity.Success;
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            connectionStatus = $"Error: {ex.Message}";
+            connectionSeverity = Severity.Error;
+            StateHasChanged();
+        }
+    }
+
+    private void SerialPortDataReceived(object sender, SerialDataReceivedEventArgs e)
+    {
+        try
+        {
+            while (serialPort.BytesToRead > 0)
+            {
+                var rawMessage = serialPort.ReadExisting();
+            
+                // Check for STX (0x02) and ETX (0x03)
+                if (rawMessage.StartsWith("\u0002") && rawMessage.Contains("\u0003"))
+                {
+                    // Extract content between STX and ETX
+                    var stxIndex = rawMessage.IndexOf('\u0002');
+                    var endIndex = rawMessage.IndexOf('\u0003');
+                    var message = rawMessage.Substring(stxIndex + 1, stxIndex - endIndex - 1);
+
+                    if (message.Contains("DATE") && message.Contains("HU"))
+                    {
+                        var parts = message.Split('|');
+                        double temp = 0;
+                        double hum = 0;
+
+                        foreach (var part in parts)
+                        {
+                            if (part.StartsWith("DATE"))
+                                double.TryParse(part[4..], out temp);
+                            else if (part.StartsWith("HU"))
+                                double.TryParse(part[2..], out hum);
+                        }
+
+                        UpdateDataArrays(temp, hum);
+                        InvokeAsync(StateHasChanged);
+                    }else if (rawMessage.StartsWith("FAN"))
+                    {
+                        // Handle separate fan status messages
+                        var status = rawMessage.Substring(3).Trim();
+                        fanStatus = status == "1";
+                        InvokeAsync(StateHasChanged);
+                    }
+                    
+                }
+                
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error processing data: {ex.Message}");
+        }
+    }
+
+    private void SendCommand(char command)
+    {
+        try
+        {
+            if (serialPort?.IsOpen == true)
+            {
+                // Send command
+                serialPort.Write(command.ToString());
+                
+                // Handle interval changes
+                if (command == '1' || command == '4')
+                {
+                    selectedInterval = int.Parse(command.ToString());
+                    serialPort.Write($"INT:{selectedInterval}");  // Send interval to device
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            connectionStatus = $"Send error: {ex.Message}";
+            connectionSeverity = Severity.Error;
+            StateHasChanged();
+        }
+    }
+
+    public void Dispose()
+    {
+        if (serialPort?.IsOpen == true)
+        {
+            serialPort.Close();
+            serialPort.DataReceived -= SerialPortDataReceived;
+        }
+        serialPort?.Dispose();
+    }
+
+    // Keep existing chart update methods from previous solution
+    
+
+    private void UpdateDataArrays(double temp, double humidity)
+    {
+        ShiftArray(tempSeries[0].Data, temp);
+        ShiftArray(humiditySeries[0].Data, humidity);
+        
+        if(timeLabels.Count >= 20) timeLabels.RemoveAt(0);
+        timeLabels.Add(DateTime.Now.ToString("HH:mm:ss"));
+    }
+
+    private void ShiftArray(double[] array, double newValue)
+    {
+        Array.Copy(array, 1, array, 0, array.Length - 1);
+        array[^1] = newValue;
+    }
+
+    // private void UpdateCharts()
+    // {
+    //     InvokeAsync(() =>
+    //     {
+    //         tempChart.Update();
+    //         humidityChart.Update();
+    //         StateHasChanged();
+    //     });
+    // }
+
+}

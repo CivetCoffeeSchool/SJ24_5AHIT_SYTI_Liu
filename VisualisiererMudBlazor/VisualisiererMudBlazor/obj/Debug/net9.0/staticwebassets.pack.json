@@ -1,0 +1,213 @@
+{
+  "Files": [
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\VisualisiererMudBlazor.bundle.scp.css",
+      "PackagePath": "staticwebassets\\VisualisiererMudBlazor.jlm5lbq1ao.bundle.scp.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "E:\\20242025_school\\Systemtechnik-SYT\\SYTI\\SJ24_5AHIT_SYTI_Liu\\VisualisiererMudBlazor\\VisualisiererMudBlazor\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.VisualisiererMudBlazor.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.VisualisiererMudBlazor.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.VisualisiererMudBlazor.props",
+      "PackagePath": "build\\VisualisiererMudBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.VisualisiererMudBlazor.props",
+      "PackagePath": "buildMultiTargeting\\VisualisiererMudBlazor.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.VisualisiererMudBlazor.props",
+      "PackagePath": "buildTransitive\\VisualisiererMudBlazor.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
